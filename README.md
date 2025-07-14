@@ -1,0 +1,3 @@
+# FinWise
+
+FinWise is a personal budget planner that empowers users to manage their monthly finances by analyzing uploaded CSV budget data and offering tailored, AI-generated suggestions. The app helps users track expenses, identify savings opportunities, and receive actionable recommendations to improve financial health. Powered by a custom LLM agent backend built with FastAPI and vector search tools.

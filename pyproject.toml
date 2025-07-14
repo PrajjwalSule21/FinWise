@@ -1,0 +1,13 @@
+[project]
+name = "finwise"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.116.1",
+    "langchain>=0.3.26",
+    "pandas>=2.3.1",
+    "qdrant-client>=1.14.3",
+    "uvicorn[standard]>=0.35.0",
+]
