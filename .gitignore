@@ -10,3 +10,6 @@ wheels/
 .venv
 .env
 /.env
+/data
+data/
+app/data/

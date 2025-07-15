@@ -12,7 +12,8 @@ DATA_DIR = Path("data")
 async def upload_csv(file: UploadFile = File(...)):
     allowed_extensions = (".csv", ".xlsx")
     if not file.filename.lower().endswith(allowed_extensions):
-        raise HTTPException(status_code=400, detail="Only CSV and Excel files are allowed.")
+        raise HTTPException(status_code=400, detail={"message": "Only CSV and Excel files are allowed.",
+                                                     "success": 0})
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -24,4 +25,5 @@ async def upload_csv(file: UploadFile = File(...)):
     with open(file_path, "wb") as f:
         shutil.copyfileobj(file.file, f)
 
-    return {"message": f"File '{file.filename}' uploaded successfully."}
+    return {"message": f"File '{file.filename}' uploaded successfully.",
+            "success": 1}
