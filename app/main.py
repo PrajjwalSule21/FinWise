@@ -1,11 +1,10 @@
 from fastapi import FastAPI
 from api.routes import router
-import uvicorn
 
 
 app = FastAPI(title="FinWise")
 
 app.include_router(router)
 
-if __name__ == "__main__":
-    uvicorn.run(app=app, reload=True)
+# if __name__ == "__main__":
+#     uvicorn.run(app=app, reload=True)

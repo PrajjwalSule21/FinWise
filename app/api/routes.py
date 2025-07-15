@@ -2,7 +2,9 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 import os
 from pathlib import Path
 import shutil
-from utils.utils import remove_all_files_in_directory
+from utils.file_handler import remove_all_files_in_directory
+from services.budget_ai import get_budget_suggestion
+
 
 router = APIRouter()
 
@@ -27,3 +29,13 @@ async def upload_csv(file: UploadFile = File(...)):
 
     return {"message": f"File '{file.filename}' uploaded successfully.",
             "success": 1}
+
+
+
+@router.get("/ai/budget-suggestion/")
+async def budget_suggestion():
+    try:
+        insights = get_budget_suggestion(DATA_DIR)
+        return {"suggestion": insights}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
